@@ -163,11 +163,12 @@ dtls_event(struct dtls_context_t *dtls_context,
     coap_event_dtls = COAP_EVENT_DTLS_CONNECTED;
     break;
   }
-  case DTLS_EVENT_RENEGOTIATE:
-  {
+#ifdef DTLS_EVENT_RENEGOTIATE
+  case DTLS_EVENT_RENEGOTIATE: {
     coap_event_dtls = COAP_EVENT_DTLS_RENEGOTIATE;
     break;
   }
+#endif
   default:
     ;
   }
